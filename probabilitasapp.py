@@ -1,4 +1,4 @@
-import tkinter
+import tkinter.messagebox
 from tkinter import *
 import math
 import tempfile, base64, zlib
@@ -11,6 +11,10 @@ _, ICON_PATH = tempfile.mkstemp()
 with open(ICON_PATH, 'wb') as icon_file:
     icon_file.write(ICON)
     
+
+def tentang():
+    tkinter.messagebox.showinfo("Tentang aplikasi", "aplikasi untuk perhitungan probabilitas dan kombinasi")
+    
     
 def clearprobabilitas():
     na.delete(0, END)
@@ -20,6 +24,7 @@ def clearprobabilitas():
 def clearkombinasi():
     nk.delete(0, END)
     kk.delete(0, END)
+    labelstringnk.set("")
     
 
 def hitungprobabilitas():
@@ -74,7 +79,7 @@ label = tkinter.Label(root, text="Window with transparent icon.")
 menubar = Menu(root)
 menu1 = Menu(menubar, tearoff=0)
 
-menu1.add_command(label="tentang aplikasi")
+menu1.add_command(label="tentang aplikasi", command=tentang)
 menubar.add_cascade(label="about", menu=menu1)
 
 
